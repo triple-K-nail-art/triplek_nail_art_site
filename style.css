@@ -303,3 +303,18 @@ a {
   transform: scale(1.05) rotate(-1deg);
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #b3005a;          /* brand color */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 230, 240, 0.8);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #b3005a;
+  color: #fff;
+}

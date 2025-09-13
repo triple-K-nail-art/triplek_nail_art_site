@@ -51,6 +51,10 @@
         <div class="swiper-slide"><img src="images/nail4.jpeg" alt="Nail design 4"></div>
         <div class="swiper-slide"><img src="images/nail5.jpeg" alt="Nail design 5"></div>
       </div>
+  
+      <!-- Navigation arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </section>
 
@@ -123,20 +127,25 @@
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,          // show 3 images at a time
-    spaceBetween: 20,           // space between slides
-    loop: true,                 // continuous loop
-    autoplay: {
-      delay: 2500,              // 2.5 seconds per slide
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      0: { slidesPerView: 1 },   // mobile
-      600: { slidesPerView: 2 }, // tablet
-      900: { slidesPerView: 3 }  // desktop
-    }
-  });
+ const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    600: { slidesPerView: 2 },
+    900: { slidesPerView: 3 }
+  }
+});
+
 </script>
 
 </html>
