@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triple K Nail Art</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Davia's Triple K Nail Art 💅</h1>
+    <p>Beautiful nails, every time.</p>
+    <a href="#booking" class="btn">Book Now</a>
+
+    <div class="social-links">
+      <a href="https://instagram.com/tripleknailart" target="_blank" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://tiktok.com/@godblesschild7_3" target="_blank" aria-label="TikTok">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
+      </a>
+    </div>
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  </header>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>At Triple K Nail Art, we create stunning, unique, and stylish nail designs that bring out your personality and confidence. 💕</p>
+    <p>From chic minimalist looks to bold 3D designs, we bring your nail dreams to life. Every client leaves with nails that are not only beautiful but healthy and long-lasting</p>
+    <p>Our mission is simple: to make every visit relaxing, fun, and unforgettable. Come in and let us pamper you!</p>
+     <p>Our services include:</p> 
+      <ul>
+        <li>Manicures</li>
+        <li>Pedicures</li>
+        <li>Nail Art Designs</li>
+        <li>Gel Nails</li>
+        <li>Acrylic Nails</li>
+      </ul>
+      <p>Come visit us and let us pamper you! Book your appointment today to get the nails of your dreams. ✨</p>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2>Our Work</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/nail1.jpeg" alt="Nail design 1"></div>
+        <div class="swiper-slide"><img src="images/nail2.jpeg" alt="Nail design 2"></div>
+        <div class="swiper-slide"><img src="images/nail3.jpeg" alt="Nail design 3"></div>
+        <div class="swiper-slide"><img src="images/nail4.jpeg" alt="Nail design 4"></div>
+        <div class="swiper-slide"><img src="images/nail5.jpeg" alt="Nail design 5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-cards">
+      <div class="card">
+        <h3>Short Nails + Pedicure</h3>
+        <p class="price">$5000</p>
+        <p>Perfect for a fresh, clean look with pampering pedicure.</p>
+      </div>
+      <div class="card">
+        <h3>French Nails + Free Toe Polish</h3>
+        <p class="price">$3000</p>
+        <p>Classic French manicure with complimentary toe polish.</p>
+      </div>
+      <div class="card">
+        <h3>Pedicure Only</h3>
+        <p class="price">$3000</p>
+        <p>Relax and rejuvenate your feet with our luxurious pedicure.</p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="location" class="location">
+    <h2>Our Location</h2>
+    <p>📞 +1 (876) 880-1939</p>
+    <p>Shrewsbury District, Fruitful Vale P.O, Portland, Jamaica</p>
+  
+    <!-- Google Maps Embed -->
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15165.431445845543!2d-76.557809198998!3d18.147421415305256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShrewsbury%20District%2C%20Fruitful%20Vale%20P.O%2C%20Portland%2C%20Jamaica!5e0!3m2!1sen!2sus!4v1757803924942!5m2!1sen!2sus"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  
+  <section id="booking" class="booking">
+    <h2>Book an Appointment</h2>
+    <p>Fill out the form below and we’ll contact you to confirm your appointment.</p>
+    
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="booking-form">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Your Cell Number" required pattern="[0-9]{10,}">
+      </div>
+      <div class="form-group">
+        <input type="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="What service would you like to book?" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Request</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://instagram.com/tripleknailart" target="_blank">Instagram</a> | 
+      <a href="https://tiktok.com/@godblesschild7_3" target="_blank">TikTok</a>
+    </div>
+    <p>&copy; 2025 Davia's Triple K Nail Art | 📞 +1 (876) 880-1939 | Shrewsbury District, Fruitful Vale P.O, Portland.</p>
+  </footer>
+</body>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,          // show 3 images at a time
+    spaceBetween: 20,           // space between slides
+    loop: true,                 // continuous loop
+    autoplay: {
+      delay: 2500,              // 2.5 seconds per slide
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },   // mobile
+      600: { slidesPerView: 2 }, // tablet
+      900: { slidesPerView: 3 }  // desktop
+    }
+  });
+</script>
+
+</html>
