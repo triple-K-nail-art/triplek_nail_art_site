@@ -157,23 +157,109 @@ a {
 }
 
 /* Card content */
-.pricing-cards .card h3 {
-  color: #b3005a;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+/* Pricing Section */
+/* Pricing Section */
+.pricing-section {
+  max-width: 900px;
+  margin: 60px auto;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #333;
+  text-align: left;
 }
 
-.pricing-cards .card .price {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #800040;
-  margin-bottom: 15px;
+.pricing-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.pricing-cards .card p {
+.pricing-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* stack on small screens */
+}
+
+/* Price List */
+/* Pricing Section */
+.pricing-section {
+  max-width: 900px;
+  margin: 60px auto;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #333;
+}
+
+.pricing-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.pricing-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* stacks on mobile */
+}
+
+/* Price List */
+.pricing-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
   font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
+}
+
+.title {
+  flex: 1;
+}
+
+.dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #ccc;
+  margin: 0 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #c94f7c;
+}
+
+/* Special Offers - stacked vertically */
+.special-offers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.special-offer {
+  background: #fff5f8;
+  border: 1px solid #f8cdda;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(201, 79, 124, 0.1);
+}
+
+.special-offer h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #c94f7c;
+}
+
+.special-offer .highlight {
+  font-weight: bold;
+  color: #c94f7c;
+  font-size: 1.1rem;
 }
 
 
@@ -324,46 +410,68 @@ a {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Gallery section background */
 .gallery {
-  padding: 80px 20px;
-  background: #fffafc;
+  background: linear-gradient(to bottom right, #fff5f8, #ffeaf2);
+  padding: 50px 20px;
+  border-radius: 20px;
   text-align: center;
 }
 
 .gallery h2 {
-  color: #b3005a;
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  color: #c94f7c;
+}
+
+/* Image styling */
+/* Control the slide/card size */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-slide img {
-  width: 100%;
-  height: 280px;              /* match approximate height of pricing cards */
-  border-radius: 15px;
-  object-fit: cover;          /* crops images nicely to fill the container */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  width: 250px;   /* adjust width */
+  height: 300px;  /* fixed height */
+  object-fit: cover; /* crop nicely instead of stretching */
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .swiper-slide img:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #b3005a;          /* brand color */
+/* Navigation arrows */
+.swiper-button-next, .swiper-button-prev {
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 230, 240, 0.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background: #b3005a;
-  color: #fff;
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 18px;
+  color: #c94f7c;
+  font-weight: bold;
 }
+
+/* Pagination dots */
+.swiper-pagination-bullet {
+  background: #c94f7c;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  background: #c94f7c;
+  opacity: 1;
+}
+
 
 .promotions {
   padding: 80px 20px;
@@ -409,4 +517,55 @@ a {
   color: #999;
   font-size: 1rem;
   margin-left: 5px;
+}
+
+.contact-section {
+  display: flex;
+  flex-wrap: wrap; /* stack on small screens */
+  gap: 40px;
+  padding: 60px 20px;
+  justify-content: center;
+}
+
+.contact-section .location,
+.contact-section .booking {
+  flex: 1 1 400px; /* grow and shrink, min width 400px */
+  max-width: 500px;
+}
+
+.contact-section .map-container iframe {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+}
+
+.pricing-list {
+  width: 300px; /* adjust as needed */
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start; /* prices left, titles right */
+  gap: 20px; /* space between price and title */
+  padding: 8px 0;
+  border-bottom: 1px dotted #ccc; /* optional dotted line */
+}
+
+.price {
+  font-weight: bold;
+  width: 60px; /* keeps prices aligned */
 }
