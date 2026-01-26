@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Triple K Nail Art</title>
+  <meta name="description" content="Triple K Nail Art — beautiful, long-lasting nail designs in Portland, Jamaica. Book your appointment today.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 </head>
 <body>
   <header class="hero">
@@ -13,26 +16,23 @@
     <a href="#booking" class="btn">Book Now</a>
 
     <div class="social-links">
-      <a href="https://instagram.com/tripleknailart" target="_blank" aria-label="Instagram">
+      <a href="https://instagram.com/tripleknailart" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
       </a>
-      <a href="https://tiktok.com/@godblesschild7_3" target="_blank" aria-label="TikTok">
+      <a href="https://tiktok.com/@godblesschild7_3" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
       </a>
-      <a href="https://wa.me/18768801939" target="_blank" aria-label="WhatsApp">
+      <a href="https://wa.me/18768801939" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" class="contact-whatsapp">
       </a>    
     </div>
 
     <section> 
       <h3>Our Hours:</h3> 
-        <p>Monday - Friday: 11am -9pm</li>
-        <p>Saturday: 10am - 9pm</p>
-        <p>Sunday: Half Day</p>
+      <p>Monday - Friday: 11am - 9pm</p>
+      <p>Saturday: 10am - 9pm</p>
+      <p>Sunday: Half Day</p>
     </section>
-    <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-
   </header>
 
   <section id="about" class="about">
@@ -54,39 +54,7 @@
   <section id="gallery" class="gallery">
     <h2>Our Work</h2>
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/nail1.jpeg" alt="Nail design 1"></div>
-        <div class="swiper-slide"><img src="images/nail2.jpeg" alt="Nail design 2"></div>
-        <div class="swiper-slide"><img src="images/nail3.jpeg" alt="Nail design 3"></div>
-        <div class="swiper-slide"><img src="images/nail4.jpeg" alt="Nail design 4"></div>
-        <div class="swiper-slide"><img src="images/nail5.jpeg" alt="Nail design 5"></div>
-        <div class="swiper-slide"><img src="images/nail6.jpeg" alt="Nail design 6"></div>
-        <div class="swiper-slide"><img src="images/nail7.jpeg" alt="Nail design 7"></div>
-        <div class="swiper-slide"><img src="images/nail8.jpeg" alt="Nail design 8"></div>
-        <div class="swiper-slide"><img src="images/nail9.jpeg" alt="Nail design 9"></div>
-        <div class="swiper-slide"><img src="images/nail10.jpeg" alt="Nail design 10"></div>
-        <div class="swiper-slide"><img src="images/nail11.jpeg" alt="Nail design 11"></div>
-        <div class="swiper-slide"><img src="images/nail12.jpeg" alt="Nail design 12"></div>
-        <div class="swiper-slide"><img src="images/nail13.jpeg" alt="Nail design 13"></div>
-        <div class="swiper-slide"><img src="images/nail14.jpeg" alt="Nail design 14"></div>
-        <div class="swiper-slide"><img src="images/nail15.jpeg" alt="Nail design 15"></div>
-        <div class="swiper-slide"><img src="images/nail16.jpeg" alt="Nail design 16"></div>
-        <div class="swiper-slide"><img src="images/nail17.jpeg" alt="Nail design 17"></div>
-        <div class="swiper-slide"><img src="images/nail18.jpeg" alt="Nail design 18"></div>
-        <div class="swiper-slide"><img src="images/nail19.jpeg" alt="Nail design 19"></div>
-        <div class="swiper-slide"><img src="images/nail20.jpeg" alt="Nail design 20"></div>
-        <div class="swiper-slide"><img src="images/nail21.jpeg" alt="Nail design 21"></div>
-        <div class="swiper-slide"><img src="images/nail22.jpeg" alt="Nail design 22"></div>
-        <div class="swiper-slide"><img src="images/nail23.jpeg" alt="Nail design 23"></div>
-        <div class="swiper-slide"><img src="images/nail24.jpeg" alt="Nail design 24"></div>
-        <div class="swiper-slide"><img src="images/nail25.jpeg" alt="Nail design 25"></div>
-        <div class="swiper-slide"><img src="images/nail26.jpeg" alt="Nail design 26"></div>
-        <div class="swiper-slide"><img src="images/nail27.jpeg" alt="Nail design 27"></div>
-        <div class="swiper-slide"><img src="images/nail28.jpeg" alt="Nail design 28"></div>
-        <div class="swiper-slide"><img src="images/nail29.jpeg" alt="Nail design 29"></div>
-        <div class="swiper-slide"><img src="images/nail30.jpeg" alt="Nail design 30"></div>
-        <div class="swiper-slide"><img src="images/nail31.jpeg" alt="Nail design 31"></div>
-      </div>
+      <div class="swiper-wrapper" id="gallery-slides"></div>
   
       <!-- Navigation arrows -->
       <div class="swiper-button-next"></div>
@@ -96,98 +64,15 @@
   </section>
 
   <section id="pricing" class="contact-section">
-      <!-- Price List -->
-      <div class="pricing-list">
-
-        <h2 class="pricing-title">Pricing</h2>
-        <div class="item">
-          <span class="title">Short Nails</span>
-          <span class="dots"></span>
-          <span class="price">$3000</span>
+      <div class="pricing-layout">
+        <!-- Price List -->
+        <div class="pricing-list">
+          <h2 class="pricing-title">Pricing</h2>
+          <div id="pricing-items"></div>
         </div>
-        <div class="item">
-          <span class="title">Medium Nails</span>
-          <span class="dots"></span>
-          <span class="price">$3500</span>
-        </div>
-        <div class="item">
-          <span class="title">Long Nails</span>
-          <span class="dots"></span>
-          <span class="price">$4000</span>
-        </div>
-        <div class="item">
-          <span class="title">Pedicure</span>
-          <span class="dots"></span>
-          <span class="price">$3000</span>
-        </div>
-        <div class="item">
-          <span class="title">Manicure</span>
-          <span class="dots"></span>
-          <span class="price">$2000</span>
-        </div>
-        <div class="item">
-          <span class="title">Gel X</span>
-          <span class="dots"></span>
-          <span class="price">$3500</span>
-        </div>
-        <div class="item">
-          <span class="title">Polish Toe</span>
-          <span class="dots"></span>
-          <span class="price">$1000</span>
-        </div>
-        <div class="item">
-          <span class="title">Tip Toe Nail</span>
-          <span class="dots"></span>
-          <span class="price">$1500</span>
-        </div>
-         <div class="item">
-          <span class="title">Soak off Fingers</span>
-          <span class="dots"></span>
-          <span class="price">$1500</span>
-        </div>
-         <div class="item">
-          <span class="title">Soak off Toes</span>
-          <span class="dots"></span>
-          <span class="price">$1000</span>
-        </div>
-         <div class="item">
-          <span class="title">Acrylic all Toes</span>
-          <span class="dots"></span>
-          <span class="price">$2500</span>
-        </div>
-         <div class="item">
-          <span class="title">Refill Fingers</span>
-          <span class="dots"></span>
-          <span class="price">$2500</span>
-        </div>
-         <div class="item">
-          <span class="title">Refill Toes</span>
-          <span class="dots"></span>
-          <span class="price">$1200</span>
-        </div>
-        </div>
-         <div class="item">
-          <span class="title">Charms</span>
-          <span class="dots"></span>
-          <span class="price">price varies</span>
-        </div>
-      </div>
-  
-      <!-- Special Offers -->
-      <div class="special-offers">
-        <div class="special-offer">
-          <h3>✨ V - Day Special Offer ✨</h3>
-          <p>Short French (1 design) - <span class="highlight">$2500</span><p>
-            <p>Short French Tip (Toes) - <span class="highlight">$1200</span></p>
-          <p>*Feb 6 - Feb 16*</p>
-        </div>
-  
-        <div class="special-offer">
-          <h3>💅 Limited Time 💅</h3>
-          <p>Short French + Pedicure - <span class="highlight">$5200</span><p>
-            <p>Pedi Only - <span class="highlight">$2700</span></p>
-          <p>*Feb 6 - Feb 16*</p>
-        </div>
+    
+        <!-- Special Offers -->
+        <div class="special-offers" id="special-offers"></div>
       </div>
   </section>
 
@@ -197,7 +82,7 @@
       <h2>Our Location</h2>
       <p>📞 +1 (876) 880-1939 | 📍 Shrewsbury District, Fruitful Vale P.O, Portland, Jamaica</p>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15165.431445845543!2d-76.557809198998!3d18.147421415305256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShrewsbury%20District%2C%20Fruitful%20Vale%20P.O%2C%20Portland%2C%20Jamaica!5e0!3m2!1sen!2sus!4v1757803924942!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15165.431445845543!2d-76.557809198998!3d18.147421415305256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShrewsbury%20District%2C%20Fruitful%20Vale%20P.O%2C%20Portland%2C%20Jamaica!5e0!3m2!1sen!2sus!4v1757803924942!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   
@@ -217,40 +102,14 @@
 
   <footer class="footer">
     <div class="social-links">
-      <a href="https://instagram.com/tripleknailart" target="_blank">Instagram</a> | 
-      <a href="https://tiktok.com/@godblesschild7_3" target="_blank">TikTok</a>
-      <a href="https://wa.me/18768801939" target="_blank"> WhatsApp</a> 
+      <a href="https://instagram.com/tripleknailart" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+      <a href="https://tiktok.com/@godblesschild7_3" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://wa.me/18768801939" target="_blank" rel="noopener noreferrer"> WhatsApp</a> 
     </div>
     <p>&copy; 2025 Davia's Triple K Nail Art | 📞 +1 (876) 880-1939 | Shrewsbury District, Fruitful Vale P.O, Portland.</p>
   </footer>
 </body>
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script>
- const swiper = new Swiper(".mySwiper", {
-  slidesPerView: 3,
-  spaceBetween: 20,
-  loop: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    600: { slidesPerView: 2 },
-    900: { slidesPerView: 3 }
-  }
-});
-
-
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+<script src="app.js" defer></script>
 </html>

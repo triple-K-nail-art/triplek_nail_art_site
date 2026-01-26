@@ -58,115 +58,13 @@ a {
   text-align: center;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.gallery-grid img {
+.swiper-slide img {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* Pricing */
-.pricing {
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #fff0f8, #ffe6f0);
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-.pricing h2 {
-  font-size: 2.5rem;
-  color: #b3005a;
-  margin-bottom: 10px;
-}
-
-.pricing p {
-  color: #555;
-  margin-bottom: 50px;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.pricing-item {
-  background: #fff;
-  border-radius: 20px;
-  padding: 30px 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pricing-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.pricing-item h3 {
-  color: #b3005a;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.pricing-item .price {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.pricing-item .desc {
-  color: #777;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-
-/* Card container */
-.pricing-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* Individual card */
-.pricing-cards .card {
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  padding: 30px 20px;
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-top: 4px solid #b3005a;
-}
-
-.pricing-cards .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-/* Card content */
-/* Pricing Section */
-/* Pricing Section */
-.pricing-section {
-  max-width: 900px;
-  margin: 60px auto;
-  font-family: "Helvetica Neue", sans-serif;
-  color: #333;
-  text-align: left;
-}
-
 .pricing-title {
   text-align: center;
   font-size: 2rem;
@@ -174,30 +72,7 @@ a {
   font-weight: 600;
 }
 
-.pricing-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  flex-wrap: wrap; /* stack on small screens */
-}
-
-/* Price List */
-/* Pricing Section */
-.pricing-section {
-  max-width: 900px;
-  margin: 60px auto;
-  font-family: "Helvetica Neue", sans-serif;
-  color: #333;
-}
-
-.pricing-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.pricing-container {
+.pricing-layout {
   display: flex;
   gap: 40px;
   align-items: flex-start;
