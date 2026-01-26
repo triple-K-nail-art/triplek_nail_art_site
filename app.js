@@ -23,6 +23,8 @@ const pricingItems = [
   { title: "Charms", price: "price varies" },
 ];
 
+const featuredPricing = pricingItems.slice(0, 3);
+
 const specialOffers = [
   {
     title: "✨ V - Day Special Offer ✨",
@@ -84,7 +86,33 @@ const renderPricing = () => {
   const pricingContainer = document.getElementById("pricing-items");
   if (!pricingContainer) return;
 
-  pricingItems.forEach((item) => pricingContainer.appendChild(createPricingItem(item)));
+  pricingItems.slice(featuredPricing.length).forEach((item) => {
+    pricingContainer.appendChild(createPricingItem(item));
+  });
+};
+
+const renderFeaturedPricing = () => {
+  const featuredContainer = document.getElementById("pricing-featured");
+  if (!featuredContainer) return;
+
+  featuredPricing.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "pricing-card";
+
+    const title = document.createElement("h4");
+    title.textContent = item.title;
+
+    const price = document.createElement("p");
+    price.className = "pricing-card-price";
+    price.textContent = item.price;
+
+    const note = document.createElement("p");
+    note.className = "pricing-card-note";
+    note.textContent = "Signature length options.";
+
+    card.append(title, price, note);
+    featuredContainer.appendChild(card);
+  });
 };
 
 const renderSpecialOffers = () => {
@@ -143,6 +171,41 @@ const initSwiper = () => {
 document.addEventListener("DOMContentLoaded", () => {
   renderGallery();
   renderPricing();
+  renderFeaturedPricing();
   renderSpecialOffers();
   initSwiper();
+  initRevealAnimations();
+});
+
+const initRevealAnimations = () => {
+  const revealElements = document.querySelectorAll(".reveal");
+  revealElements.forEach((element) => {
+    Array.from(element.children).forEach((child, index) => {
+      child.classList.add("stagger");
+      child.style.setProperty("--stagger-delay", `${index * 80}ms`);
+    });
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  revealElements.forEach((el) => observer.observe(el));
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-loaded");
 });
