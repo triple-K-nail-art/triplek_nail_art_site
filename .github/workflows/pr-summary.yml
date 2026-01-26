@@ -1,4 +1,4 @@
-name: Summarize new issues
+name: Summarize new pull_request
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ jobs:
   summary:
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      pull-requests: write
       models: read
       contents: read
 
@@ -22,14 +22,13 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           prompt: |
-            Summarize the following GitHub issue in one paragraph:
-            Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body }}
+            Summarize the following GitHub pull_request in one paragraph:
+            Title: ${{ github.event.pull_request.title }}
+            Body: ${{ github.event.pull_request.body }}
 
       - name: Comment with AI summary
         run: |
-          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
+          gh pr comment $PR_NUMBER --body "${{ steps.inference.outputs.response }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          RESPONSE: ${{ steps.inference.outputs.response }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
