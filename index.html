@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 </head>
 <body>
   <div class="page-texture" aria-hidden="true"></div>
@@ -105,13 +104,13 @@
       <div class="section-heading">
         <span class="badge">Gallery</span>
         <h2>Our Work</h2>
-        <p>Swipe through our latest sets for dreamy inspo.</p>
+        <p>A closer look at the colors, details, and designs we love.</p>
       </div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="gallery-slides"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+      <div class="gallery-carousel">
+        <button class="gallery-nav gallery-prev" type="button" aria-label="Previous photos">‹</button>
+        <div class="gallery-track" id="gallery-slides" aria-live="polite"></div>
+        <button class="gallery-nav gallery-next" type="button" aria-label="Next photos">›</button>
+        <div class="gallery-counter" id="gallery-counter"></div>
       </div>
     </section>
 
@@ -178,6 +177,5 @@
     </footer>
   </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
 <script src="app.js" defer></script>
 </html>

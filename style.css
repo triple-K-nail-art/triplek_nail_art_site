@@ -372,40 +372,116 @@ section {
   position: relative;
 }
 
-.swiper {
-  padding: 30px 0 50px;
+.gallery-carousel {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 12px;
+  width: min(100%, 1040px);
+  margin-inline: auto;
 }
 
-.swiper-slide img {
-  border-radius: 24px;
-  box-shadow: var(--shadow-strong);
-  height: 400px;
+.gallery-track {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+  height: 240px;
+  overflow: hidden;
+}
+
+.gallery-slot:nth-child(4) {
+  display: none;
+}
+
+.gallery-slot {
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f6edf1;
+}
+
+.gallery-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--pink-900);
-  width: 44px;
-  height: 44px;
-  background: rgba(255, 255, 255, 0.85);
+.gallery-counter {
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--ink-700);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.gallery-nav {
+  position: static;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0 0 4px;
+  border: 1px solid rgba(37, 19, 31, 0.12);
+  color: var(--ink-900);
+  background: rgba(255, 255, 255, 0.94);
   border-radius: 50%;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 4px 18px rgba(37, 19, 31, 0.14);
+  transition: transform 180ms ease, background 180ms ease;
+  font: inherit;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px;
-  font-weight: 700;
+.gallery-prev {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.swiper-pagination-bullet {
-  background: rgba(178, 23, 88, 0.3);
-  opacity: 1;
+.gallery-next {
+  grid-column: 3;
+  grid-row: 1;
 }
 
-.swiper-pagination-bullet-active {
-  background: var(--pink-700);
+.gallery-nav:hover {
+  transform: scale(1.06);
+  background: #fff;
+}
+
+.gallery-nav:focus-visible {
+  outline: 3px solid var(--pink-700);
+  outline-offset: 3px;
+}
+
+@media (max-width: 540px) {
+  .gallery-carousel {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    column-gap: 8px;
+  }
+
+  .gallery-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: min(70vw, 260px);
+  }
+
+  .gallery-slot:nth-child(4) {
+    display: block;
+  }
+
+  .gallery-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 26px;
+  }
 }
 
 .pricing {
