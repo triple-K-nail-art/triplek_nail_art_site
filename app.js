@@ -6,6 +6,31 @@ const galleryImages = Array.from({ length: 31 }, (_, index) => {
   };
 });
 
+galleryImages.push(
+  ...[
+    "PHOTO-2026-09-27-09-11-30 2.jpg",
+    "PHOTO-2026-09-27-09-11-30 3.jpg",
+    "PHOTO-2026-09-27-09-11-30 4.jpg",
+    "PHOTO-2026-09-27-09-11-30 5.jpg",
+    "PHOTO-2026-09-27-09-11-30.jpg",
+    "PHOTO-2026-09-27-09-11-31 2.jpg",
+    "PHOTO-2026-09-27-09-11-31 3.jpg",
+    "PHOTO-2026-09-27-09-11-31 4.jpg",
+    "PHOTO-2026-09-27-09-11-31 5.jpg",
+    "PHOTO-2026-09-27-09-11-31 6.jpg",
+    "PHOTO-2026-09-27-09-11-31 7.jpg",
+    "PHOTO-2026-09-27-09-11-31 8.jpg",
+    "PHOTO-2026-09-27-09-11-31.jpg",
+    "PHOTO-2026-09-27-09-11-32 2.jpg",
+    "PHOTO-2026-09-27-09-11-32 3.jpg",
+    "PHOTO-2026-09-27-09-11-32 4.jpg",
+    "PHOTO-2026-09-27-09-11-32.jpg",
+  ].map((filename, index) => ({
+    src: `images/${filename}`,
+    alt: `Nail art design ${index + 32}`,
+  })),
+);
+
 const pricingItems = [
   { title: "Short Nails", price: "$3500" },
   { title: "Medium Nails", price: "$4000" },
@@ -57,18 +82,16 @@ const renderGallery = () => {
   const wrapper = document.getElementById("gallery-slides");
   if (!wrapper) return;
 
-  galleryImages.forEach(({ src, alt }) => {
-    const slide = document.createElement("div");
-    slide.className = "swiper-slide";
-
+  galleryImages.slice(0, 4).forEach(({ src, alt }, index) => {
+    const slot = document.createElement("div");
+    slot.className = "gallery-slot";
+    slot.dataset.index = index;
     const img = document.createElement("img");
     img.src = src;
     img.alt = alt;
-    img.loading = "lazy";
     img.decoding = "async";
-
-    slide.appendChild(img);
-    wrapper.appendChild(slide);
+    slot.appendChild(img);
+    wrapper.appendChild(slot);
   });
 };
 
@@ -131,31 +154,72 @@ const renderSpecialOffers = () => {
   });
 };
 
-const initSwiper = () => {
-  if (!window.Swiper) return;
+const initGallery = () => {
+  const track = document.getElementById("gallery-slides");
+  const counter = document.getElementById("gallery-counter");
+  const previous = document.querySelector(".gallery-prev");
+  const next = document.querySelector(".gallery-next");
+  if (!track || !counter || !previous || !next) return;
 
-  new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      0: { slidesPerView: 1 },
-      600: { slidesPerView: 2 },
-      900: { slidesPerView: 3 },
-    },
-  });
+  const slots = Array.from(track.querySelectorAll(".gallery-slot"));
+  const total = galleryImages.length;
+  let firstIndex = 0;
+  let isAnimating = false;
+  const visibleSlotCount = () => (window.matchMedia("(max-width: 540px)").matches ? 4 : 3);
+
+  const updateCounter = () => {
+    const count = visibleSlotCount();
+    counter.textContent = `${String(firstIndex + 1).padStart(2, "0")}–${String(
+      (firstIndex + count - 1) % total + 1,
+    ).padStart(2, "0")} / ${total}`;
+  };
+
+  const turn = (step) => {
+    if (isAnimating) return;
+    isAnimating = true;
+    const count = visibleSlotCount();
+    const animations = slots.slice(0, count).map((slot, index) => {
+      const img = slot.querySelector("img");
+      const targetIndex = (firstIndex + index + step + total) % total;
+      const delay = index * 90;
+      const movement = index % 2 === 0 ? -1 : 1;
+
+      return new Promise((resolve) => {
+        window.setTimeout(() => {
+          const outgoing = img.animate(
+            [
+              { transform: "translateY(0)", opacity: 1 },
+              { transform: `translateY(${movement * 110}%)`, opacity: 0.25 },
+            ],
+            { duration: 260, easing: "cubic-bezier(0.4, 0, 1, 1)" },
+          );
+          outgoing.onfinish = () => {
+            img.src = galleryImages[targetIndex].src;
+            img.alt = galleryImages[targetIndex].alt;
+            const incoming = img.animate(
+              [
+                { transform: `translateY(${movement * -110}%)`, opacity: 0.25 },
+                { transform: "translateY(0)", opacity: 1 },
+              ],
+              { duration: 300, easing: "cubic-bezier(0, 0, 0.2, 1)" },
+            );
+            incoming.onfinish = resolve;
+          };
+        }, delay);
+      });
+    });
+
+    firstIndex = (firstIndex + step + total) % total;
+    updateCounter();
+    Promise.all(animations).then(() => {
+      isAnimating = false;
+    });
+  };
+
+  previous.addEventListener("click", () => turn(-visibleSlotCount()));
+  next.addEventListener("click", () => turn(visibleSlotCount()));
+  window.addEventListener("resize", updateCounter);
+  updateCounter();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -163,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPricing();
   renderFeaturedPricing();
   renderSpecialOffers();
-  initSwiper();
+  initGallery();
   initRevealAnimations();
 });
 
