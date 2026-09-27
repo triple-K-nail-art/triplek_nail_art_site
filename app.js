@@ -31,6 +31,9 @@ galleryImages.push(
   })),
 );
 
+const newlyAddedGalleryImages = galleryImages.splice(31);
+galleryImages.unshift(...newlyAddedGalleryImages);
+
 const pricingItems = [
   { title: "Short Nails", price: "$3500" },
   { title: "Medium Nails", price: "$4000" },
