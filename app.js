@@ -19,26 +19,18 @@ const pricingItems = [
   { title: "Gel Polish Toes", price: "$1500" },
   { title: "Pedicure (Female)", price: "$3500" },
   { title: "Pedicure (Men)", price: "$4000" },
+  { title: "Gel-X", price: "$4000" },
 ];
 
 const featuredPricing = pricingItems.slice(0, 3);
 
 const specialOffers = [
   {
-    title: "✨ V - Day Special Offer ✨",
+    title: "✨ October Special ✨",
     lines: [
-      { label: "Short French (1 design)", price: "$2500" },
-      { label: "Short French Tip (Toes)", price: "$1200" },
+      { label: "Short Short Nails", price: "$3000" },
     ],
-    dates: "*Feb 6 - Feb 16*",
-  },
-  {
-    title: "💅 Limited Time 💅",
-    lines: [
-      { label: "Short French + Pedicure", price: "$5200" },
-      { label: "Pedi Only", price: "$2700" },
-    ],
-    dates: "*Feb 6 - Feb 16*",
+    dates: "Oct 1 - Oct 31",
   },
 ];
 
