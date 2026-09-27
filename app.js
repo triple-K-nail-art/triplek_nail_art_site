@@ -165,9 +165,14 @@ const initGallery = () => {
   const total = galleryImages.length;
   let firstIndex = 0;
   let isAnimating = false;
+  let isReady = false;
   const visibleSlotCount = () => (window.matchMedia("(max-width: 540px)").matches ? 4 : 3);
 
   const updateCounter = () => {
+    if (!isReady) {
+      counter.textContent = "Loading photos…";
+      return;
+    }
     const count = visibleSlotCount();
     counter.textContent = `${String(firstIndex + 1).padStart(2, "0")}–${String(
       (firstIndex + count - 1) % total + 1,
@@ -175,7 +180,7 @@ const initGallery = () => {
   };
 
   const turn = (step) => {
-    if (isAnimating) return;
+    if (!isReady || isAnimating) return;
     isAnimating = true;
     const count = visibleSlotCount();
     const animations = slots.slice(0, count).map((slot, index) => {
@@ -191,7 +196,7 @@ const initGallery = () => {
               { transform: "translateY(0)", opacity: 1 },
               { transform: `translateY(${movement * 110}%)`, opacity: 0.25 },
             ],
-            { duration: 260, easing: "cubic-bezier(0.4, 0, 1, 1)" },
+            { duration: 340, easing: "cubic-bezier(0.4, 0, 1, 1)" },
           );
           outgoing.onfinish = () => {
             img.src = galleryImages[targetIndex].src;
@@ -201,7 +206,7 @@ const initGallery = () => {
                 { transform: `translateY(${movement * -110}%)`, opacity: 0.25 },
                 { transform: "translateY(0)", opacity: 1 },
               ],
-              { duration: 300, easing: "cubic-bezier(0, 0, 0.2, 1)" },
+              { duration: 380, easing: "cubic-bezier(0, 0, 0.2, 1)" },
             );
             incoming.onfinish = resolve;
           };
@@ -219,7 +224,24 @@ const initGallery = () => {
   previous.addEventListener("click", () => turn(-visibleSlotCount()));
   next.addEventListener("click", () => turn(visibleSlotCount()));
   window.addEventListener("resize", updateCounter);
+
+  previous.disabled = true;
+  next.disabled = true;
   updateCounter();
+
+  Promise.all(
+    galleryImages.map(({ src }) => {
+      const image = new Image();
+      image.decoding = "async";
+      image.src = src;
+      return image.decode().catch(() => undefined);
+    }),
+  ).then(() => {
+    isReady = true;
+    previous.disabled = false;
+    next.disabled = false;
+    updateCounter();
+  });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
