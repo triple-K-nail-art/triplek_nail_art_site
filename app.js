@@ -7,20 +7,18 @@ const galleryImages = Array.from({ length: 31 }, (_, index) => {
 });
 
 const pricingItems = [
-  { title: "Short Nails", price: "$3000" },
-  { title: "Medium Nails", price: "$3500" },
-  { title: "Long Nails", price: "$4000" },
-  { title: "Pedicure", price: "$3000" },
-  { title: "Manicure", price: "$2000" },
-  { title: "Gel X", price: "$3500" },
-  { title: "Polish Toe", price: "$1000" },
-  { title: "Tip Toe Nail", price: "$1500" },
-  { title: "Soak off Fingers", price: "$1500" },
-  { title: "Soak off Toes", price: "$1000" },
-  { title: "Acrylic all Toes", price: "$2500" },
-  { title: "Refill Fingers", price: "$2500" },
-  { title: "Refill Toes", price: "$1200" },
-  { title: "Charms", price: "price varies" },
+  { title: "Short Nails", price: "$3500" },
+  { title: "Medium Nails", price: "$4000" },
+  { title: "Long Nails", price: "$5500 and up" },
+  { title: "Fill Short Nails", price: "$2500" },
+  { title: "Fill Medium Nails", price: "$3000" },
+  { title: "Fill Long Nails", price: "$4000" },
+  { title: "Fill Toes", price: "$1500" },
+  { title: "Tip Toes", price: "$1800" },
+  { title: "Acrylic All Toes", price: "$2500" },
+  { title: "Gel Polish Toes", price: "$1500" },
+  { title: "Pedicure (Female)", price: "$3500" },
+  { title: "Pedicure (Men)", price: "$4000" },
 ];
 
 const featuredPricing = pricingItems.slice(0, 3);
