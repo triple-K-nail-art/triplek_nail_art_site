@@ -456,6 +456,12 @@ section {
   background: #fff;
 }
 
+.gallery-nav:disabled {
+  opacity: 0.45;
+  cursor: wait;
+  transform: none;
+}
+
 .gallery-nav:focus-visible {
   outline: 3px solid var(--pink-700);
   outline-offset: 3px;
